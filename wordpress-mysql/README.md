@@ -1,4 +1,8 @@
 # wordpress-mysql
+
+a simple Kubernetes application that runs on 2 pods, worpress and mysql
+
+
 to deploy the project write:
 
 kubectl apply -f ./
