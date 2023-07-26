@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: busybox-configmap
+data:
+  player_lives: "5"
+  players_in_game: "50"
+
