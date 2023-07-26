@@ -7,6 +7,11 @@ to deploy the project write:
 
 kubectl apply -f ./
 
+than to watch the wordpess site:
+
+kubectl port-forward <pod-name> <desired-port>:80
+ 
+
 check the pods are up:
 kubectl get pods
 
