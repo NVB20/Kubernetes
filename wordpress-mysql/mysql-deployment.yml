@@ -14,6 +14,10 @@ spec:
       labels:
         app: mysql
     spec:
+      volumes:
+      - name: mysql-pv-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
       containers:
       - name: mysql-cont
         image: mysql:latest
@@ -21,11 +25,14 @@ spec:
         - containerPort: 3306
           name: mysql
         env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: root
-          - name: MYSQL_DATABASE
-            value: wordpress
-          - name: MYSQL_USER
-            value: niv
-          - name: MYSQL_PASSWORD
-            value: password
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_DATABASE
+          value: wordpress
+        - name: MYSQL_USER
+          value: niv
+        - name: MYSQL_PASSWORD
+          value: password
+        volumeMounts:
+        - name: mysql-pv-storage
+          mountPath: /var/lib/mysql
