@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cola-config
+data:
+  cola-nginx.conf: |
+    server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        return 200 'Taste The Feeling. Coca-Cola.\n';
+        add_header Content-Type text/plain;
+    }
+    }

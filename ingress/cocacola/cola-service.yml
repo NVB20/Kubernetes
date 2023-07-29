@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cola-service
+  labels:
+    app: cocacola
+spec:
+  selector:
+    app: cocacola
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

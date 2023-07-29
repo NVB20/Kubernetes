@@ -45,8 +45,4 @@ kubectl delete service nginx-service</code></pre>
     <li><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Kubernetes Services</a></li>
   </ul>
 
-  <h2>License</h2>
-  <p>This project is licensed under the <a href="LICENSE">MIT License</a>. Feel free to use, modify, and distribute the code as per the terms of the license.</p>
-  <p>If you encounter any issues or have suggestions, please feel free to open an issue or submit a pull request. Contributions are always welcome!</p>
-
   <p>Happy Kubernetes deployment with NGINX!</p>

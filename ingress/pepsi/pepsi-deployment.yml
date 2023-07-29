@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pepsi-deployment
+  labels:
+    app: pepsi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pepsi
+  template:
+    metadata:
+      labels:
+        app: pepsi
+    spec:
+      containers:
+      - name: pepsi-cont
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+            name: pepsi
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/conf.d
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: pepsi-config

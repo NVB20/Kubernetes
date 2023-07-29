@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pepsi-config
+data:
+  pepsi-nginx.conf: |
+    server {
+    listen       80;
+    server_name  localhost;
+
+    location / {
+        return 200 'Every Pepsi Refreshes The World.\n';
+        add_header Content-Type text/plain;
+    }
+    }

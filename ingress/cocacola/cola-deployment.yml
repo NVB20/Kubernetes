@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cola-deployment
+  labels:
+    app: cocacola
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cocacola
+  template:
+    metadata:
+      labels:
+        app: cocacola
+    spec:
+      containers:
+      - name: cola-cont
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+            name: cocacola
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/conf.d
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: cola-config
