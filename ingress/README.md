@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Welcome to Cool Drinks Website</title>
-</head>
-
-<body>
     <h1>Welcome to Cool Drinks Website</h1>
     <p>Thank you for choosing the Cool Drinks website project! Below is the README file containing important
         information to get started.</p>
