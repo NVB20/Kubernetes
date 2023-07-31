@@ -1,25 +1,19 @@
-#!/bin/bash
-
-apply_brand_resources() {
-    local brand_name=$1
-
-    echo " "
-    echo "Deleting ${brand_name} Resources"
-
-    kubectl apply -f  ./  2>/dev/null
-
-}
-
-
-
+echo "Activating Pepsi resources: "
 cd pepsi
-apply_brand_resources "Pepsi"
+
+kubectl apply -f ./ 
+
 cd ..
 
+
+echo " "
+echo "Activating Coca-Cola resources: "
 cd cocacola
-apply_brand_resources "Coca-Cola"
+
+kubectl apply -f ./ 
+
 cd ..
 
 echo " "
-echo "Deleting ingress"
+echo "Activating Ingress"
 kubectl apply -f drinks-ingress.yml
