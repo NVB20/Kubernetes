@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pepsi
+  name: pepsi-service
+  namespace: ingress-nginx
   labels:
     app: pepsi
 spec:

@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cooldrinks-ingress
+  namespace: ingress-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cooldrinks.com
+      http:
+        paths:
+         - path: /cocacola
+           pathType: Exact
+           backend:
+             service:
+               name: cola-service
+               port:
+                 number: 80
+         - path: /pepsi
+           pathType: Exact
+           backend:
+             service:
+               name: pepsi-service
+               port:
+                 number: 80
