@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ynet-checker
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: hello
+              image: alpine:latest
+              args:
+                - /bin/sh
+                - -c
+                - wget http://www.ynet.co.il 
+          restartPolicy: OnFailure

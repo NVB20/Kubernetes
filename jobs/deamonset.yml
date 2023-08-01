@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: cpu-load-monitor
+  labels:
+    app: monitor
+spec:
+  selector:
+    matchLabels:
+      name: cpu-load-monitor
+  template:
+    metadata:
+      labels:
+        name: cpu-load-monitor
+    spec:
+      containers:
+        - name: monitor-cont
+          image: ubuntu:latest
+          args:
+            - /bin/sh
+            - -c
+            - while true; do echo $(cat /host/proc/loadavg) >> /var/log/file.txt ; sleep 5; done
+          volumeMounts:
+            - name: varlog
+              mountPath: /var/log
+            - name: procup
+              mountPath: /host/proc/loadavg
+      volumes:
+        - name: varlog 
+          hostPath:
+            path: /var/log
+        - name: procup
+          hostPath:
+            path: /proc/loadavg
+
+
+
+

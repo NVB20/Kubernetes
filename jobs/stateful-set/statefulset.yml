@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: q
+spec:
+  serviceName: queue
+  replicas: 3
+  selector:
+    matchLabels:
+      app: queue-service
+  template:
+    metadata:
+      labels:
+        app: queue-service
+    spec:
+      containers:
+        - name: ubuntu-cont
+          image: alpine:latest
+          args:
+            - /bin/sh
+            - -c
+            - nc -l 0.0.0.0 80
+          ports:
+            - containerPort: 80
+

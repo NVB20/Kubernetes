@@ -9,6 +9,7 @@ examples of kubernetes project
    - with secret as volume
 
 4. ingress, 2 nginx microservices with ingress implementation
-
+	- ingress site.com/route
+	- ingress route.site.com
 
 #note that all run and tested on minikube enviroment
