@@ -1,4 +1,4 @@
-cd pepsi
+cd ingress-setup && cd pepsi
 
 echo "Delete Pepsi Resources"
 
@@ -8,11 +8,9 @@ if [ $? -ne 0 ]; then
     echo "There are no Pepsi resources currently up"
 fi
 
-cd ..
+cd .. && cd cocacola
 
-cd cocacola
-
-echo "Delete Coca-Cola Resources"
+echo " " && echo "Delete Coca-Cola Resources"
 
 kubectl delete -f ./ 2>/dev/null
 
@@ -22,4 +20,6 @@ fi
 
 cd ..
 
-kubectl delete -f drinks-ingress.yml
+
+echo " " && echo "Delete Ingress"
+kubectl delete -f drinks-ingress.yml 2>/dev/null
