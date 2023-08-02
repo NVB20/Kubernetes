@@ -11,5 +11,9 @@ examples of kubernetes project
 4. ingress, 2 nginx microservices with ingress implementation
 	- ingress site.com/route
 	- ingress route.site.com
+5. kubernetes jobs 
+	- Cronjob
+	- Deamonset
+	- Statefulset
 
 #note that all run and tested on minikube enviroment
